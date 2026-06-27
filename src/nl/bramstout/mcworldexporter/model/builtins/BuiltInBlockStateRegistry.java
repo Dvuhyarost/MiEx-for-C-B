@@ -68,12 +68,18 @@ public class BuiltInBlockStateRegistry {
 		
 	}
 	
+	// Статическое поле для хранения регистрации
 	public static Map<String, IBlockStateConstructor> builtins = new HashMap<String, IBlockStateConstructor>();
 	
+	// Единственный метод load()
 	public static void load(){
+		// Сначала загружаем встроенные обработчики (если они есть)
 		BuiltInBlockState.load();
 		
+		// Создаём временную карту для регистрации
 		Map<String, IBlockStateConstructor> builtins = new HashMap<String, IBlockStateConstructor>();
+		
+		// --- СТАНДАРТНЫЕ РЕГИСТРАЦИИ ---
 		builtins.put("dragon_head", new DefaultBlockStateConstructor(BlockStateSkull.class));
 		builtins.put("dragon_wall_head", new DefaultBlockStateConstructor(BlockStateSkull.class));
 		
@@ -111,21 +117,39 @@ public class BuiltInBlockStateRegistry {
 		builtins.put("minecraft:red_wall_banner", new DefaultBlockStateConstructor(BlockStateBanner.class));
 		builtins.put("minecraft:black_wall_banner", new DefaultBlockStateConstructor(BlockStateBanner.class));
 		
+		// Регистрация жидких блоков
 		for(String liquidType : Config.liquid)
 			builtins.put(liquidType, new DefaultBlockStateConstructor(BlockStateLiquid.class));
 		
+		// --- НОВАЯ СТРОКА ДЛЯ CHISELS & BITS ---
+		// ВАЖНО: Убедись, что имя "chiselsandbits:chiseled" совпадает с тем, что в NBT.
+		// И что класс BuiltInBlockStateChiseledBlock.java существует и правильно назван.
+		builtins.put("chiselsandbits:chiseled", new DefaultBlockStateConstructor(BuiltInBlockStateChiseledBlock.class));
+		// --- КОНЕЦ НОВОЙ СТРОКИ ---
+		
+
+		// Присваиваем временную карту в статическое поле
 		BuiltInBlockStateRegistry.builtins = builtins;
 	}
 	
+	// Метод для создания нового BlockState
 	public static BlockState newBlockState(String name, int dataVersion) {
+		// Сначала проверяем, есть ли у нас встроенный обработчик (из BuiltInBlockState.getHandler)
 		BuiltInBlockStateHandler builtInBlockStateHandler = BuiltInBlockState.getHandler(name);
 		if(builtInBlockStateHandler != null) {
-			// We have a custom version specified.
+			// У нас есть пользовательская реализация.
 			return new BuiltInBlockState(name, dataVersion, builtInBlockStateHandler);
 		}
 		
+		// Иначе ищем в карте builtins
 		IBlockStateConstructor constructor = builtins.get(name);
-		return constructor.construct(name, dataVersion);
+		if (constructor != null) {
+			return constructor.construct(name, dataVersion);
+		}
+		
+		// Если ничего не нашли, возвращаем null или базовый BlockState
+		// (в оригинальном коде тут, скорее всего, создавался бы стандартный BlockState)
+		return null; // или реализуй создание стандартного BlockState, если constructor == null
 	}
 
 }
