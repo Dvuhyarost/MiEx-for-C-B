@@ -40,7 +40,7 @@ import java.util.List;
 import nl.bramstout.mcworldexporter.resourcepack.ResourcePackSource;
 import nl.bramstout.mcworldexporter.world.World;
 
-public class LauncherSaveDir extends Launcher{
+public class LauncherSaveDir extends Launcher {
 
 	private String name;
 	private File path;
@@ -85,7 +85,7 @@ public class LauncherSaveDir extends Launcher{
 							ex.printStackTrace();
 						}
 					}else {
-						// Jave Edition
+						// Java Edition (исправлено опечатка "Jave")
 						saves.add(new MinecraftSave(f.getName(), f, new File(f, "icon.png"), this));
 					}
 				}
@@ -98,6 +98,13 @@ public class LauncherSaveDir extends Launcher{
 	public List<ResourcePackSource> getResourcePackSourcesForWorld(World world) {
 		return new ArrayList<ResourcePackSource>();
 	}
+	
+	// --- ДОБАВЛЕННЫЙ МЕТОД ---
+	@Override
+	public List<ResourcePackSource> getAllResourcePackSources() {
+		return new ArrayList<ResourcePackSource>();
+	}
+	// --- КОНЕЦ ДОБАВЛЕННОГО МЕТОДА ---
 	
 	@Override
 	public boolean ownsWorld(File worldFolder) {
