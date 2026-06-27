@@ -61,11 +61,3 @@ MiEx распространяется как отдельный JAR-файл, к
 - **[Bram Stout Productions](https://github.com/BramStoutProductions)** — автор оригинального MiEx
 - **[AlgorithmX2](https://github.com/AlgorithmX2)** — автор Chisels & Bits
 
-
-## Лицензия
-
-Оригинальный MiEx распространяется под лицензией **BSD 3-Clause** — см. файл [LICENSE](LICENSE) для подробностей.
-
-Мои модификации для поддержки Chisels & Bits распространяются под лицензией **MIT**.
-
-Chisels & Bits также распространяется под лицензией MIT, что делает данный форк полностью совместимым.
