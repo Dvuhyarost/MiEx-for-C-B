@@ -1,36 +1,71 @@
-![Header image](https://bramstout.nl/content/miex_main_artwork_logo.jpg)
-MiEx is a modern Minecraft and Hytale World Exporter written in Java, originally created for use by Bram Stout Productions to help create sets for animations. It has also been used for animations in Minecraft Live and Element Animation videos. MiEx exports out worlds into USD (Universal Scene Description).
 
-# Features
-* Uses Minecraft's Resource Pack system for an accurate export of the world, and allowing it to export with custom resource packs (including custom models).
-* Support for modded worlds.
-* Support for Minecraft Bedrock Edition worlds and resource packs.
-* Support for Hytale worlds and resource packs / mods.
-* Exports worlds out into big chunks (called export chunks) which each are payloaded into your scene, allowing you to only load in specific parts of the world when animating, so that the world won't slow down your computer.
-* Level-of-Detail system to reduce polygon count in the far background, making it feasable to have massive sets.
-* Remove caves feature to reduce polygon count.
-* Ability to export certain blocks as a new instance for each occurence of the block, making it easy to replace those block (like a chest or a door) with a rig of the block.
-* Up to 3x faster rendering with ray tracers (like Renderman, Arnold, Redshift, and Cycles) due to a custom made raytracing optimiser.
-* Face optimiser that combines faces into larger faces, whenever possible, in order to reduce polycount.
-* Powerful material templating system.
-* Support for pipeline integration.
-* Option to separate the world out into a foreground section and a background section.
-* Custom random noise generator for block model selection to make randomly rotated textures appear nicer to the eye.
-* Support for maps in item frames.
-* Support for biome colours, including biome blending.
-* Support for animated textures.
-* Support for random frame offsets on animated textures.
-* Support for grouping textures together into atlases in order to reduce material count.
-* Support for adding a random offset to certain blocks (like vegetation) to reproduce what happens in Minecraft.
-* Support for connected textures using Optifine's CTM format.
-* Support for a modifier system that runs per block or per face that can modify biome colours, vertex colour sets, and face normals.
-And many more features!
+# MiEx с поддержкой Chisels & Bits
 
-MiEx currently supports worlds from Minecraft Java Edition 1.2.1 and later, Minecraft Bedrock Edition 1.17 and later, and all versions of Hytale.
+> 🍴 Это неофициальный форк [MiEx](https://github.com/BramStoutProductions/MiEx) от Bram Stout Productions с добавленной поддержкой экспорта блоков [Chisels & Bits](https://github.com/ChiselsAndBits/Chisels-and-Bits).
+> 
+> **НЕ связан и НЕ одобрен Bram Stout Productions.**
 
-# Installing and Using MiEx
-MiEx is released as a stand-alone Jar file which contains all that it needs. For more information on how to use MiEx, please visit [our wiki!](https://github.com/BramStoutProductions/MiEx/wiki)
+---
 
-# Forum
-Talk about MiEx, ask for help, help others, and share your creations on our [GitHub Discussions page!](https://github.com/BramStoutProductions/MiEx/discussions)
+MiEx — это современный экспортер миров Minecraft и Hytale, написанный на Java. Изначально создан Bram Stout Productions для помощи в создании декораций для анимации. Также использовался для анимаций в Minecraft Live и видео Element Animation. MiEx экспортирует миры в формат USD (Universal Scene Description).
 
+##  Что нового в этом форке
+
+ **Полная поддержка Chisels & Bits** — экспорт чизел-блоков
+
+
+##  Основные возможности
+
+* Использует систему Resource Pack Minecraft для точного экспорта мира, а также позволяет экспортировать с пользовательскими ресурс-паками (включая кастомные модели).
+* Поддержка модифицированных миров.
+* Поддержка миров Minecraft Bedrock Edition и их ресурс-паков.
+* Поддержка миров Hytale и их ресурс-паков / модов.
+* Экспорт миров большими частями (называемыми export chunks), каждая из которых загружается в сцену как отдельный payload, что позволяет загружать только нужные части мира при анимации, чтобы мир не замедлял компьютер.
+* Система Level-of-Detail для уменьшения количества полигонов на дальнем плане, что делает возможным использование массивных декораций.
+* Функция удаления пещер для уменьшения количества полигонов.
+* Возможность экспортировать определённые блоки как новый экземпляр для каждого вхождения блока, что упрощает замену этих блоков (например, сундука или двери) ригом блока.
+* До 3x более быстрый рендеринг с рейтрейсерами (такими как Renderman, Arnold, Redshift и Cycles) благодаря собственному оптимизатору трассировки лучей.
+* Оптимизатор граней, который объединяет грани в более крупные грани, когда это возможно, для уменьшения количества полигонов.
+* Мощная система шаблонов материалов.
+* Поддержка интеграции в пайплайн.
+* Возможность разделения мира на секцию переднего плана и секцию заднего плана.
+* Собственный генератор случайного шума для выбора моделей блоков, чтобы случайно повёрнутые текстуры выглядели приятнее для глаза.
+* Поддержка карт в рамках предметов.
+* Поддержка цветов биомов, включая смешивание биомов.
+* Поддержка анимированных текстур.
+* Поддержка случайных смещений кадров для анимированных текстур.
+* Поддержка группировки текстур в атласы для уменьшения количества материалов.
+* Поддержка добавления случайного смещения к определённым блокам (например, растительности) для воспроизведения того, что происходит в Minecraft.
+* Поддержка связанных текстур с использованием формата CTM от Optifine.
+* Поддержка системы модификаторов, которая работает для каждого блока или грани и может изменять цвета биомов, наборы цветов вершин и нормали граней.
+
+И многие другие возможности!
+
+##  Поддерживаемые версии
+
+MiEx в настоящее время поддерживает миры из:
+- **Minecraft Java Edition** 1.2.1 и новее
+- **Minecraft Bedrock Edition** 1.17 и новее
+- **Все версии Hytale**
+
+##  Установка и использование
+
+MiEx распространяется как отдельный JAR-файл, который содержит всё необходимое. Для получения дополнительной информации о том, как использовать MiEx, пожалуйста, посетите [нашу wiki!](https://github.com/BramStoutProductions/MiEx/wiki)
+
+##  Форум
+
+Обсуждайте MiEx, задавайте вопросы, помогайте другим и делитесь своими творениями на нашей [странице GitHub Discussions!](https://github.com/BramStoutProductions/MiEx/discussions)
+
+##  Благодарности
+
+- **[Bram Stout Productions](https://github.com/BramStoutProductions)** — автор оригинального MiEx
+- **[AlgorithmX2](https://github.com/AlgorithmX2)** — автор Chisels & Bits
+
+
+## Лицензия
+
+Оригинальный MiEx распространяется под лицензией **BSD 3-Clause** — см. файл [LICENSE](LICENSE) для подробностей.
+
+Мои модификации для поддержки Chisels & Bits распространяются под лицензией **MIT**.
+
+Chisels & Bits также распространяется под лицензией MIT, что делает данный форк полностью совместимым.
